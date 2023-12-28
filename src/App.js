@@ -1,16 +1,23 @@
-import List from './Components/List';
+import List from './components/List/List';
 
-import './App.css';
-
+import styles from './App.module.scss';
 
 function App() {
 
   return (
-    <div className='list'>
-        <div>
-            <List/>
-        </div>
-    </div>
+    <>
+      <header>
+
+      </header>
+
+      <main>
+        <List/>
+      </main>
+
+      <footer>
+
+      </footer>
+    </>
   );
 }
 

@@ -1,7 +1,7 @@
 import { useState } from "react";
-import ListItem from "./ListItem";
+import ListItem from "./ListItem/ListItem";
 
-import './List.css'
+import styles from './List.module.scss'
 
 const List = () => {
     const [todo, setTodo] = useState([]);
@@ -26,15 +26,15 @@ const List = () => {
     }
 
     return (
-        <>
-            <input placeholder="Write your to do" className="input" onKeyUp={handleKeyPress} onChange={onChangeHandler} value={input}/>
-            <ol>
+        <div className={styles.container}>
+            <input className={styles.textInput} placeholder="Write your to do" onKeyUp={handleKeyPress} onChange={onChangeHandler} type='text' value={input}/>
+            <ul>
                 {todo.map((el, i) =>
                 <ListItem el={el} i={i}/>
                 )}
-            </ol>
-            <button className="btn" onClick={() => onClickHandler(input)}>Add To Do</button>
-        </>
+            </ul>
+            <button onClick={() => onClickHandler(input)}>Add To Do</button>
+        </div>
     );
 }
 
