@@ -1,57 +1,39 @@
+@use '../variables' as v;
+@use '../functions' as f;
 @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@500;600&display=swap');
-
-$fontFamily:  'Barlow', sans-serif;;
-$n: none;
-$black: #111111;
-$white: #f1f1f1;
 
 %baseSettings{
     width: 100%;
-    height: 3.125rem;
-    font-family: $fontFamily;
+    height: f.toRem(50);
+    font-family: v.$fontFamily;
     border-radius: 2%;
-    color: $black;
+    color: v.$black;
 }
 
 %reset{
-    border: $n;
+    border: v.$n;
     padding: 0;
 }
 
 .textInput{
     @extend %baseSettings;
     @extend %reset;
-    outline: $n;
-    font-size: 1.25rem;
+    outline: v.$n;
+    font-size: f.toRem(20);
+
+    &:not(:has(ul)){
+        margin-bottom: f.toRem(12);
+    }
 }
 
 .container{
-    width: 21.875rem;
+    width: f.toRem(350);
     margin: 0 auto;
 
     button{
         @extend %baseSettings;
         @extend %reset;
-        font-size: 1.5rem;
+        font-size: f.toRem(24);
         font-weight: 700;
-    }
-
-    ul{
-        display: inline-block;
-        list-style: $n;
-        margin: 0.938rem;
-
-        li{
-            margin: 1.438rem 0;
-            color: $white;
-            font-family: $fontFamily;
-            font-size: 1.438rem;
-            word-wrap: break-word;
-        }
-
-        &:has(li){
-            margin: 1.5rem 0;
-            padding: 0;
-        }
     }
 }

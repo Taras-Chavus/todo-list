@@ -1,13 +1,38 @@
-const ListItem = (props) => {
- return (
-    <>
-        <input type="checkbox" />
+import { v4 as uuidv4 } from 'uuid';
 
-        <li key={`${props.el}-${props.i}`}>
-            {props.el}
-        </li>
-    </>
- );
+import styles from './ListItem.module.scss';
+
+const ListItem = ({ todo, setTodo }) => {
+
+    const handleCheckboxChange = (itemId) => {
+        const updatedCheckbox = todo.map(item => 
+            item.id === itemId ? {...item, completed: !item.completed} : item
+            );
+        setTodo(updatedCheckbox);
+    };
+
+    return (
+        <ul className={styles.todoArea}>
+
+            {todo.map(item => (
+                <li className={styles.todoContainer} key={item.id}>
+                    <input 
+                        key={item.id} 
+                        onChange={() => handleCheckboxChange(item.id)}
+                        checked={item.completed}
+                        type="checkbox" 
+                        name={`checkbox-${item.id}`}
+                        id={`checkbox-${item.id}`}
+                    />
+                    <label 
+                        key={uuidv4()}  
+                        htmlFor={`checkbox-${item.id}`}>
+                            { item.input }
+                    </label>
+                </li>
+            ))}
+        </ul>
+    );
 }
 
 export default ListItem;
