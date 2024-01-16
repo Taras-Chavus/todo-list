@@ -1,4 +1,11 @@
-$fontFamily:  'Barlow', sans-serif;;
-$n: none;
-$black: #111111;
-$white: #f1f1f1;
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@500;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Sen:wght@400;700;800&display=swap");
+
+
+$fontFamily1: Sen, sans-serif;
+$fontFamily: 'Barlow', sans-serif;;
+$black: #0b090a;
+$white: #fdfcfd;
+$gold: #d79f6c;
+$grey: #666666;
+$greyText: #505050;

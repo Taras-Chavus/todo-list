@@ -1,25 +1,24 @@
 @use '../variables' as v;
 @use '../functions' as f;
-@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@500;600&display=swap');
 
 %baseSettings{
     width: 100%;
     height: f.toRem(50);
-    font-family: v.$fontFamily;
+    font-family: v.$fontFamily1;
     border-radius: 2%;
     color: v.$black;
 }
 
 %reset{
-    border: v.$n;
+    border: none;
     padding: 0;
 }
 
 .textInput{
     @extend %baseSettings;
     @extend %reset;
-    outline: v.$n;
     font-size: f.toRem(20);
+    padding-left: f.toRem(6);
 
     &:not(:has(ul)){
         margin-bottom: f.toRem(12);
@@ -35,5 +34,6 @@
         @extend %reset;
         font-size: f.toRem(24);
         font-weight: 700;
+        background-color: v.$gold;
     }
 }

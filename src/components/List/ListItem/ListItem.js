@@ -1,8 +1,9 @@
 import { v4 as uuidv4 } from 'uuid';
+import { memo } from 'react';
 
 import styles from './ListItem.module.scss';
 
-const ListItem = ({ todo, setTodo }) => {
+const ListItem = memo(({ todo, setTodo }) => {
 
     const handleCheckboxChange = (itemId) => {
         const updatedCheckbox = todo.map(item => 
@@ -33,6 +34,6 @@ const ListItem = ({ todo, setTodo }) => {
             ))}
         </ul>
     );
-}
+})
 
 export default ListItem;
